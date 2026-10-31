@@ -1,0 +1,20 @@
+# ImmortalWrt 25.12.2 seed config for JDCloud RE-CS-02 (AX6600)
+# Workflow runs `make defconfig` after copying this file to .config,
+# so only the selection matters; everything else is filled automatically.
+CONFIG_TARGET_qualcommax=y
+CONFIG_TARGET_qualcommax_ipq60xx=y
+CONFIG_TARGET_qualcommax_ipq60xx_DEVICE_jdcloud_re-cs-02=y
+
+# build both the sysupgrade image and the initramfs (needed for first flash / recovery)
+CONFIG_TARGET_ROOTFS_INITRAMFS=y
+
+# LuCI + Chinese
+CONFIG_PACKAGE_luci=y
+CONFIG_LUCI_LANG_zh_Hans=y
+CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
+
+# add your own packages below, e.g.
+# CONFIG_PACKAGE_luci-app-ttyd=y
+# CONFIG_PACKAGE_luci-app-upnp=y
+# CONFIG_PACKAGE_luci-app-ddns=y

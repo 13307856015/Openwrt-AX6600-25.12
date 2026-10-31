@@ -1,0 +1,24 @@
+diff --git a/target/linux/qualcommax/ipq60xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata b/target/linux/qualcommax/ipq60xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
+index 8d32356..700f6c8 100644
+--- a/target/linux/qualcommax/ipq60xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
++++ b/target/linux/qualcommax/ipq60xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
+@@ -30,6 +30,9 @@ case "$FIRMWARE" in
+ 		ath11k_patch_mac $(macaddr_add $label_mac 2) 1
+ 		ath11k_set_macflag
+ 		;;
++	jdcloud,re-cs-02)
++		caldata_extract_mmc "0:ART" 0x1000 0x10000
++		;;
+ 	linksys,mr7350|\
+ 	linksys,mr7500)
+ 		caldata_extract "0:art" 0x1000 0x10000
+@@ -76,6 +79,9 @@ case "$FIRMWARE" in
+ 	cambiumnetworks,xe3-4)
+ 		caldata_extract "0:ART" 0x26800 0x20000
+ 		;;
++	jdcloud,re-cs-02)
++		caldata_extract_mmc "0:ART" 0x26800 0x20000
++		;;
+ 	linksys,mr7500)
+ 		caldata_extract "0:art" 0x26800 0x20000
+ 		addr=$(mtd_get_mac_ascii devinfo hw_mac_addr)
